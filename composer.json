@@ -1,0 +1,67 @@
+{
+    "name": "ernestdefoe/manticore",
+    "description": "Light, typo-tolerant Manticore Search driver for Flarum 2 — free and MIT.",
+    "keywords": ["flarum", "search", "manticore", "manticoresearch", "sphinx", "fulltext"],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ernest Defoe",
+            "email": "ernestdefoe@gmail.com"
+        }
+    ],
+    "support": {
+        "forum": "https://discuss.flarum.org/d/40009-manticore-typo-tolerant-search-for-flarum-2-without-the-memory-bill",
+        "issues": "https://github.com/ernestdefoe/manticore/issues",
+        "source": "https://github.com/ernestdefoe/manticore"
+    },
+    "require": {
+        "php": "^8.2",
+        "flarum/core": "^2.0",
+        "guzzlehttp/guzzle": "^7.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ernestdefoe\\Manticore\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ernestdefoe\\Manticore\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Manticore Search",
+            "category": "feature",
+            "icon": {
+                "name": "fas fa-magnifying-glass",
+                "backgroundColor": "#1f6f5c",
+                "color": "#fff"
+            }
+        }
+    },
+    "require-dev": {
+        "flarum/phpstan": "^2.0",
+        "flarum/testing": "^2.0"
+    },
+    "scripts": {
+        "test": [
+            "@test:integration"
+        ],
+        "test:integration": "phpunit -c tests/phpunit.integration.xml",
+        "test:setup": "@php tests/integration/setup.php",
+        "analyse:phpstan": "phpstan analyse"
+    },
+    "scripts-descriptions": {
+        "test": "Runs all tests.",
+        "test:integration": "Runs all integration tests.",
+        "test:setup": "Sets up a database for use with integration tests. Execute this only once.",
+        "analyse:phpstan": "Run static analysis"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "beta",
+    "prefer-stable": true
+}
